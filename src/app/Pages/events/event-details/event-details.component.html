@@ -1,0 +1,104 @@
+<a class="custom-back-button" [routerLink]="['/create-event']"><img src="assets/images/back.png" alt="back"></a>
+
+
+<div class="form-container">
+    <div class="form-content">
+
+        <div class="detail-from-item-container">
+            <div class="custom-nav-heading">
+                Event Details
+            </div>
+        </div>
+
+        <div class="detail-form-item-container">
+            <div class="detail-form-item-title">
+                Event Details:
+            </div>
+            <div class="detail-form-item-body">
+                {{eventDetails?.eventDescription}}
+            </div>
+        </div>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-title">
+                From:
+            </div>
+            <div class="detail-form-item-body">
+                {{eventDetails?.eventStart | date: 'dd/MM/yyyy HH:mm'}}
+            </div>
+        </div>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-title">
+                Until:
+            </div>
+            <div class="detail-form-item-body">
+                {{eventDetails?.eventEnd | date: 'dd/MM/yyyy HH:mm'}}
+            </div>
+        </div>
+
+        <h3><u>Personal Details</u></h3>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-name-container">
+                <div class="detail-form-item-title">
+                    Resident Name:
+                </div>
+                <img src="assets/images/edit.png" alt="edit">
+            </div>
+            <div class="detail-form-item-body">
+                {{residentDetails?.name}}
+            </div>
+        </div>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-title">
+                Phone No:
+            </div>
+            <div class="detail-form-item-body">
+                {{residentDetails?.phoneNo}}
+            </div>
+        </div>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-title">
+                Email Address:
+            </div>
+            <div class="detail-form-item-body">
+                {{residentDetails?.email}}
+            </div>
+        </div>
+
+        <div class="detail-from-item-container">
+            <div class="detail-form-item-title">
+                Resident Address:
+            </div>
+            <div class="detail-form-item-body">
+                {{residentDetails?.houseNo}} Level {{residentDetails?.level}},Block {{residentDetails?.blockNo}},
+                Road {{residentDetails?.roadNo}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="notification-container" style="padding-left:70px;">
+    <h3>Share Event Link</h3>
+    <p>Share this event's link to the invitee so that they can view the QR code and use it for entrance at the
+        security guard's post.</p>
+    <p>The QR code is only valid during the event's date/time</p>
+</div>
+
+<div class="form-container">
+    <div class="form-content">
+        <div class="bottom-nav-button-container">
+            <a [routerLink]="['/dashboard']">
+                <div class="buttom-nav-button gray-button">Home</div>
+            </a>
+            <a [routerLink]="['/event-qr',eventId]">
+                <div class="buttom-nav-button blue-button">Share Link</div>
+            </a>
+        </div>
+    </div>
+</div>

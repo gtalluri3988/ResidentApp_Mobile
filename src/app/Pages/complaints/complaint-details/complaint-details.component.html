@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Detail</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #placeholder-image-container {
+            width: fit-content;
+            gap: 20px;
+        }
+
+        .form-container,
+        .form-content {
+            width: 100%;
+        }
+
+        .nav {
+            gap: 27px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="./complaint-create.html"><img src="assets/images/back.png" alt="back"></a>
+        <div class="nav-text">
+            Complaint Detail
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="form-content">
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Complaint Type:
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.complaintType?.name}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Complaint Details:
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.description}}
+                </div>
+            </div>
+            <!-- <div class="facility-item custom-item" *ngFor="let image of facilityDetails.facilityPhotos">
+                <img *ngIf="image.preview; else noImage" [src]="image.preview" width="50" height="200" />
+                <ng-template #noImage>
+                    <img src="assets/images/image.png" width="50" />
+                </ng-template>
+            </div> -->
+            <!-- <div class="placeholder-image-container"
+                style="display: flex; overflow-x: auto; flex-wrap: nowrap; gap: 10px;">
+                <ng-container *ngFor="let image of complaintDetails?.complaintPhotos">
+                    <img *ngIf="image.preview" [src]="image.preview" alt="image"
+                        style="width: 100px;height:100px; flex-shrink: 0;" />
+                </ng-container>
+            </div> -->
+
+            <div style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 10px; padding: 10px;">
+                <ng-container *ngFor="let image of complaintDetails?.complaintPhotos;">
+                    <ng-container *ngIf="image.preview">
+                        <div style="display: flex; flex-direction: column; align-items: center; min-width: 100px;">
+                            <img *ngIf="image.preview" [src]="image.preview" alt="image"
+                                style="height: 110px; width: 90px; border-radius: 5px; object-fit: cover;" />
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <h3><u>Personal Details</u></h3>
+
+            <div class="detail-from-item-container" style="width: 100%;">
+                <div class="detail-form-item-name-container"
+                    style="display: flex !important; flex-direction: row !important; justify-content: space-between; width: 100%;">
+                    <div class="detail-form-item-title">
+                        Resident Name:
+                    </div>
+
+                </div>
+                <div class="detail-form-item-body">
+                    {{residentDetails?.name}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Phone No:
+                </div>
+                <div class="detail-form-item-body">
+                    {{residentDetails?.phoneNo}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Email Address:
+                </div>
+                <div class="detail-form-item-body">
+                    {{residentDetails?.email}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Resident Address:
+                </div>
+                <div class="detail-form-item-body">
+                    {{residentDetails?.houseNo}} Level {{residentDetails?.levelNo}},Block {{residentDetails?.blockNo}},
+                    Road {{residentDetails?.roadNo}}
+                </div>
+            </div>
+
+            <div class="bottom-nav-button-container">
+                <a [routerLink]="['/complaint-details',complaintId]">
+                    <div class="buttom-nav-button gray-button">Back</div>
+                </a>
+                <a [routerLink]="['/complaint-email',complaintId]">
+                    <div class="buttom-nav-button blue-button">Submit</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

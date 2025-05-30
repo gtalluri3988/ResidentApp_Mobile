@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>COMMUNITY SMART ACCESS</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="top-bg">
+        <div class="heading">
+            <h2>COMMUNITY SMART ACCESS</h2>
+            <h2>{{communityDetails?.communityName | uppercase}}</h2>
+        </div>
+    </div>
+
+    <div class="bottom-bg">
+        <div class="slideshow-menu-container">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+
+                <div class="mySlides fade" style="display: block;">
+                    <div class="swiper-slide-container">
+                        <div class="swiper-slide-content">
+                            <div class="swiper-menu-title">
+                                News &amp; Annoucement
+                            </div>
+                            <div class="swiper-menu-sub-title">
+                                News title | 22/01/2025
+                            </div>
+                            <div class="swiper-menu-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga recusandae animi, nobis
+                                ipsa odit sapiente non veritatis? <a href="#">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade" style="display: none;">
+                    <div class="swiper-slide-container">
+                        <div class="swiper-slide-content">
+                            <div class="swiper-menu-title">
+                                News &amp; Annoucement
+                            </div>
+                            <div class="swiper-menu-sub-title">
+                                News title | 22/01/2025
+                            </div>
+                            <div class="swiper-menu-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga recusandae animi, nobis
+                                ipsa odit sapiente non veritatis? <a href="#">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade" style="display: none;">
+                    <div class="swiper-slide-container">
+                        <div class="swiper-slide-content">
+                            <div class="swiper-menu-title">
+                                News &amp; Annoucement
+                            </div>
+                            <div class="swiper-menu-sub-title">
+                                News title | 22/01/2025
+                            </div>
+                            <div class="swiper-menu-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga recusandae animi, nobis
+                                ipsa odit sapiente non veritatis? <a href="#">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="bottom-menu-container" id="bottom-menu-container">
+
+            <a class="bottom-menu-item"><img src="assets/images/menu-item-bill.png" class="bottom-menu-item-image">
+                <div class="bottom-menu-item-title">Bills</div>
+            </a><a [routerLink]="['//resident-notifications']" class="bottom-menu-item"><img
+                    src="assets/images/menu-item-notification.png" class="bottom-menu-item-image">
+                <div class="bottom-menu-item-title">Notification</div>
+            </a><a [routerLink]="['/resident-Profile']" class="bottom-menu-item"><img
+                    src="assets/images/menu-item-profile.png" class="bottom-menu-item-image">
+                <div class="bottom-menu-item-title">Profile</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="black-menu">
+            <div class="black-menu-msg" id="black-menu-msg">Welcome, {{residentDetails?.name}}</div>
+            <a (click)="logout()"><img class="exit-logo" src="assets/images/logo-exit.png" alt="exit logo"></a>
+        </div>
+        <div class="menu" id="menu">
+            <a *ngFor="let item of menuItems" [routerLink]="[item.url]" class="menu-item"
+                [id]="'menu-item-' + item.title">
+                <div class="menu-item-logo">
+                    <img [src]="item.logo" [alt]="item.title" />
+                </div>
+                <div class="menu-item-text-container">
+                    <div class="menu-item-title">{{ item.title }}</div>
+                    <div class="menu-item-subtitle">{{ item.subtitle }}</div>
+                </div>
+            </a>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<div class="main-container">
+    <!-- Nav -->
+    <div class="nav-container">
+        <a [routerLink]="['/dashboard']" class="nav-btn-container">
+            <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+        </a>
+        <div class="nav-name-container">
+            <div class="nav-name">
+                Create New Event
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-container">
+
+
+        <form [formGroup]="eventForm" (submit)="saveEvent()">
+            <div class="form-content" style="width: 100% !important;">
+                <label for="event-details" class="event-details">Fill in the event details</label>
+                <textarea class="custom-text-area-box" name="event-details" id="event-details"
+                    formControlName="eventDescription" rows="10"></textarea>
+
+                <!-- <input class="custom-text-area-box" type="datetime-local" id="datepicker" name="date-from"
+                    formControlName="eventStart" placeholder="From (Date / Time)" style="height: 36px;"> -->
+
+
+                <input [type]="eventStartInputType" class="custom-text-area-box" id="datepicker" name="date-from"
+                    placeholder="From (Date / Time)" formControlName="eventStart"
+                    (focus)="eventStartInputType = 'datetime-local'" (blur)="resetEventStartType()"
+                    style="height: 36px;" />
+
+                <input [type]="eventEndInputType" class="custom-text-area-box" id="datepicker" name="date-to"
+                    placeholder="Until (Date / Time)" formControlName="eventEnd"
+                    (focus)="eventEndInputType = 'datetime-local'" (blur)="resetEventEndType()" style="height: 36px;" />
+
+                <!-- <div class="" style="display: flex; flex-direction: row; gap: 10px; align-items: baseline;">
+                    <input type="checkbox" name="accept" id="accept" style="width: 15px;">
+                    <div class="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                        veniam commodi itaque hic ea totam dolorum sunt <br>
+                        qui fugiat! Provident laudantium quas in ullam molestiae!
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="bottom-nav-button-container" style="margin-top: 25px;">
+                <a [routerLink]="['/dashboard']">
+                    <div class="buttom-nav-button gray-button">Back</div>
+                </a>
+                <button style="background: transparent;border: 0px;">
+                    <div class="buttom-nav-button blue-button">Create Event</div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</div>

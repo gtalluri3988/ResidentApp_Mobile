@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Code</title>
+
+</head>
+
+<body>
+
+    <!-- <div class="main-container">
+
+        <div class="nav-container">
+            <a [routerLink]="['/visitor-details',visitorId]" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Visitor QR
+                </div>
+            </div>
+        </div>
+        <div>
+            <qrcode [qrdata]="qrData" [width]="750"></qrcode>
+        </div>
+    </div> -->
+
+    <div class="main-container">
+        <div class="nav-container">
+            <a [routerLink]="['/event-details', eventId]" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Visitor QR
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-container">
+            <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="qrCodeSize"
+                [errorCorrectionLevel]="'M'" (rendered)="onQRRendered()">
+            </qrcode>
+        </div>
+    </div>
+
+
+
+
+    <div class="notification-container qr-notification-container">
+
+        <div class="notification-child">
+            <h4>Event Detail</h4>
+            <p style="line-height: 10px;">{{eventDetails?.eventDescription}}.</p>
+        </div>
+        <br>
+        <div class="notification-child">
+            <h4>From - To</h4>
+            <p>{{eventDetails?.eventStart | date: 'dd/MM/yyyy HH:mm'}} - {{eventDetails?.eventEnd | date: 'dd/MM/yyyy
+                HH:mm'}}</p>
+        </div>
+        <br>
+        <div class="notification-child">
+            <h4>Organizer</h4>
+            <p> {{residentDetails?.name}}</p><br>
+            <p> {{residentDetails?.phoneNo}}</p><br>
+            <p>{{residentDetails?.houseNo}}, Level {{residentDetails?.level}}, Block {{residentDetails?.blockNo}},
+                Road {{residentDetails?.roadNo}}</p>
+        </div>
+
+    </div>
+
+
+    <div class="bottom-nav-button-container">
+        <a class="button-container-a" [routerLink]="['/dashboard']">
+            <div class="gray-button">
+                Home
+            </div>
+        </a>
+        <a class="button-container-a" [routerLink]="['/dashboard']">
+            <div class="blue-button">
+                Share
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>

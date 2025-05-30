@@ -1,0 +1,84 @@
+<div class="nav">
+    <a [routerLink]="['/resident-profile-facility']"><img src="assets/images/back.png" alt="back"></a>
+    <div class="nav-text">
+        Facilities Details
+    </div>
+</div>
+
+<div class="form-container">
+    <form [formGroup]="facilityForm" (submit)="savefacilityBooking()">
+        <div class="form-content">
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    {{facilityDetails?.facilityType.name}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    {{facilityDetails?.facilityName}}
+                </div>
+            </div>
+
+            <div style="width: 100%;">
+                <div class="placeholder-image-container" style="display: block !important;">
+                    <div class="facility-item custom-item" *ngFor="let image of facilityDetails?.facilityPhotos">
+                        <a (click)="openImageModal(image.preview)"><img *ngIf="image.preview; else noImage"
+                                [src]="image.preview" width="50" height="200" /></a>
+                        <ng-template #noImage>
+                            <img src="assets/images/image.png" width="50" />
+                        </ng-template>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida
+                dolor
+                sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor.</p> -->
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Rates / Day:
+                </div>
+                <div class="detail-form-item-body">
+                    RM{{facilityDetails?.rate}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Location:
+                </div>
+                <div class="detail-form-item-body">
+                    {{facilityDetails?.facilityLocation}}
+                </div>
+            </div>
+
+            <p><b>Select Booking Date:</b></p>
+
+            <div action="" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+
+                <input class="custom-input-box" type="date" placeholder="Book From" formControlName="startDate">
+                <input class="custom-input-box" type="date" placeholder="Book To" formControlName="endDate">
+            </div>
+
+        </div>
+        <br>
+        <div class="bottom-nav-button-container">
+            <a [routerLink]="['/resident-profile-facility']">
+                <div class="buttom-nav-button gray-button">Back</div>
+            </a>
+            <a type="submit" style="background: transparent;border: 0px;">
+                <div class="blue-button">
+                    <button style="background: transparent !important;color: white;"> Book Now</button>
+                </div>
+            </a>
+        </div>
+        <div *ngIf="showModal" class="modal" (click)="closeImageModal()">
+            <img [src]="modalImageSrc" class="modal-content" />
+        </div>
+    </form>
+</div>

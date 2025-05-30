@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Profile Visitor</title>
+    <style>
+        .content-container>*>*>* {
+            width: 100%;
+            box-sizing: border-box;
+            height: 30px;
+        }
+
+        .content-container {
+            align-items: center;
+
+
+        }
+
+
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #007bff;
+        }
+
+
+
+
+        form {
+            width: 100%;
+        }
+
+        select {
+            background-color: white;
+            border: solid black 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main-container">
+
+        <!-- Nav -->
+        <div class="nav-container">
+            <a [routerLink]="['/dashboard']" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Register New Visitor
+                </div>
+            </div>
+        </div>
+        <br>
+        <form [formGroup]="visitorForm" (submit)="saveVisitor()">
+            <!-- Content -->
+            <div class="content-container">
+
+                <div style="width: 100%;">
+                    <div class="register-new-visitor-form-container">
+                        <select formControlName="visitorAccessTypeId">
+                            <option value="">-Select Visit Type-</option>
+                            <option *ngFor="let item of baseService.visitorTypeDropDown" [value]="item.id">
+                                {{ item.name }}
+                            </option>
+                        </select>
+                        <input type="text" placeholder="Visitor Name" formControlName="visitorName">
+                        <input type="text" placeholder="Vehicle No." formControlName="vehicleNo">
+                        <input type="text" placeholder="Visit Purpose" formControlName="visitPurpose">
+                        <!-- <input class=" custom-text-area-box" type="date" id="datepicker" name="date-to"
+                            placeholder="Visit Date" formControlName="visitDate"> -->
+                        <input type="text" placeholder="Visit Date" class="custom-text-area-box" name="visitDate"
+                            formControlName="visitDate" onfocus="(this.type='date')"
+                            onblur="if(!this.value)this.type='text'" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="bottom-nav-button-container" style="align-self: center;">
+                <a class="button-container-a" [routerLink]="['/dashboard']">
+                    <div class="gray-button">
+                        Back
+                    </div>
+                </a>
+                <button class="button-container" (onClick)="saveVisitor()" style="    background: transparent;
+    border: 0px;">
+                    <div class="blue-button">
+                        Next
+                    </div>
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

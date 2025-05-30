@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Code</title>
+
+</head>
+
+<body>
+
+    <!-- <div class="main-container">
+
+        <div class="nav-container">
+            <a [routerLink]="['/visitor-details',visitorId]" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Visitor QR
+                </div>
+            </div>
+        </div>
+        <div>
+            <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="256" [errorCorrectionLevel]="'M'"
+                (rendered)="onQRRendered()">
+            </qrcode>
+        </div>
+    </div> -->
+
+    <div class="main-container">
+        <div class="nav-container">
+            <a [routerLink]="['/visitor-details', visitorId]" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Visitor QR
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div id="print-section" class="print">
+        <div class="qr-container">
+            <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="qrCodeSize"
+                [errorCorrectionLevel]="'M'" (rendered)="onQRRendered()">
+            </qrcode>
+        </div>
+        <div class="notification-container qr-notification-container">
+
+            <div class="notification-child">
+                <h4>Visitor Name:</h4>
+                <p>{{visitorDetails?.visitorName}}.</p>
+            </div>
+            <br>
+            <div class="notification-child">
+                <h4>Vehicle No:</h4>
+                <p>{{visitorDetails?.vehicleNo}}</p>
+            </div>
+            <br>
+            <div class="notification-child">
+                <h4>Visit Date:</h4>
+                <p> {{ visitorDetails?.visitDate.split(' ')[0] }}</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom-nav-button-container">
+        <a class="button-container-a" [routerLink]="['/dashboard']">
+            <div class="gray-button">
+                Home
+            </div>
+        </a>
+        <a class="button-container-a" (click)="downloadQRCode()">
+            <div class="blue-button">
+                Download
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>

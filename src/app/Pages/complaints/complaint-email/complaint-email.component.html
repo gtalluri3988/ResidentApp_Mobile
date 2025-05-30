@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Confirmed</title>
+
+
+    <style>
+        .nav {
+            gap: 27px
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="./index.html"><img src="assets/images/back.png" alt="back"></a>
+        <div class="nav-text">
+            Complaint Detail
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="form-content">
+
+            <div class="custom-success-confirmation">
+                <div>
+                    Your complaint has been sent to the officer on-duty and you will be contacted shortly
+                </div>
+                <img src="assets/images/mail-fly.png" alt="mail">
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Complaint Type:
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.complaintType?.name}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Complaint Details:
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.description}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Complaint Ref
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.complainRefNo}}
+                </div>
+            </div>
+
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Date / Time:
+                </div>
+                <div class="detail-form-item-body">
+                    {{complaintDetails?.complaintDate | date:'dd/MM/yyyy'}}
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+                <div class="detail-form-item-title">
+                    Status:
+                </div>
+                <div class="detail-form-item-body">
+                    Submitted
+                </div>
+            </div>
+
+            <div class="detail-from-item-container">
+
+                <div style="text-align: left;" class="detail-form-item-body">
+                    A copy of this complaint has also been sent to your email. Please refer to your email on the update
+                    regarding this complaint
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="form-button-container">
+        <a [routerLink]="['/dashboard']">
+            <div class="back-button">Home</div>
+        </a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Profile Notification</title>
+
+    <style>
+        .notification-title {
+            font-weight: 700;
+        }
+
+        .notification-item-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        hr {
+            margin: 25px 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main-container">
+
+        <!-- Nav -->
+        <div class="nav-container">
+            <a [routerLink]="['/dashboard']" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Notification
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-container">
+            <div class="notification-container">
+
+                <!-- child item -->
+                <div class="notification-item-container">
+                    <div class="notification-title">
+                        Notification 1
+                    </div>
+                    <div class="notification-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod culpa eos, rerum aperiam laborum
+                        qui rem consequuntur hic magnam corrupti beatae? Officiis a doloribus nam!
+                    </div>
+                    <div class="notification-date">
+                        28/01/2024
+                    </div>
+                </div>
+
+                <hr />
+
+                <!-- child item -->
+                <div class="notification-item-container">
+                    <div class="notification-title">
+                        Notification 1
+                    </div>
+                    <div class="notification-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod culpa eos, rerum aperiam laborum
+                        qui rem consequuntur hic magnam corrupti beatae? Officiis a doloribus nam!
+                    </div>
+                    <div class="notification-date">
+                        28/01/2024
+                    </div>
+                </div>
+
+                <hr />
+
+                <!-- child item -->
+                <div class="notification-item-container">
+                    <div class="notification-title">
+                        Notification 1
+                    </div>
+                    <div class="notification-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod culpa eos, rerum aperiam laborum
+                        qui rem consequuntur hic magnam corrupti beatae? Officiis a doloribus nam!
+                    </div>
+                    <div class="notification-date">
+                        28/01/2024
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+        <div class="bottom-nav-button-container">
+            <a [routerLink]="['/dashboard']">
+                <div class="buttom-nav-button gray-button">Home</div>
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

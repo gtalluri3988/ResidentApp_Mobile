@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Profile Visitor Confirm</title>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <!-- Nav -->
+        <div class="nav-container">
+            <a [routerLink]="['/manage-visitor']" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Confirm Visitor Details
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+
+            <div class="main-content-section-container">
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Visit Type:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.visitorAccessType?.name}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Visitor Name:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.visitorName}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Vehicle No:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.vehicleNo}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Visit Purpose:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.visitPurpose}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Visit Date:
+                    </div>
+                    <div class="main-content-p1">
+                        {{ visitorDetails?.visitDate.split(' ')[0] }}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Parking Fee / Hour:
+                    </div>
+                    <div class="main-content-p1" *ngFor="let item of visitorDetails?.community?.visitorParkingCharges">
+                        {{item.chargeType.name}} : RM{{item.amount}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-h2">
+                <u> Personal Details</u>
+            </div>
+
+            <div class="main-content-section-container">
+                <div class="main-content-section-type2">
+                    <div class="main-content-section-heading-with-icon-container">
+                        <div class="main-content-h1">
+                            Resident Name:
+                        </div>
+                        <div class="main-content-section-icon-container">
+                            <img src="assets/images/edit.png" alt="edit-icon">
+                        </div>
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.resident.name}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Phone No:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.resident?.phoneNo}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Email:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.resident?.email}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Resident Address:
+                    </div>
+                    <div class="main-content-p1">
+                        {{visitorDetails?.houseNo}} Level {{visitorDetails?.levelNo}},Block {{visitorDetails?.blockNo}},
+                        Road {{visitorDetails?.roadNo}}
+                        1, Level 4, Block A, Road 21/1
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="check-box-with-p-container">
+                <input type="checkbox" name="" id="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin
+                    gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
+            </div> -->
+
+        </div>
+
+        <div class="bottom-nav-button-container">
+            <a class="button-container-a" [routerLink]="['/manage-visitor']">
+                <div class="gray-button">
+                    Back
+                </div>
+            </a>
+            <a class="button-container-a" [routerLink]="['/visitor-qr',visitorId]">
+                <div class="blue-button">
+                    Generate QR
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- TODO: CSS -->

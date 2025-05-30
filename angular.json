@@ -13,7 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/resident-app",
+            "baseHref": "/ResidentApp/",
+            "deployUrl": "/ResidentApp/",
+            "outputPath": "dist/ResidentApp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,20 +31,25 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumError": "500kB"
                 }
               ],
               "outputHashing": "all"
@@ -85,12 +92,19 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "../../assets/styles/login.css",
+              "src/assets/css/global.css",
+              "src/assets/css/login.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../../src/assets/js/index.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7f93417b-e6af-4c0f-a431-dfe4ecdd63db"
   }
 }

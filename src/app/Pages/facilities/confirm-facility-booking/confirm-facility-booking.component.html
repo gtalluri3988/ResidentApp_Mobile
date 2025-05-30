@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Profile facility Confirm</title>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <!-- Nav -->
+        <div class="nav-container">
+            <a [routerLink]="['/facility-details',facilityId]" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Confirm Facilities Booking Details
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+
+            <div class="main-content-section-container">
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        facility Type:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.facility?.facilityType?.name}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Facilities Name:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.facility?.facilityName}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        From:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.startDate | date:'dd/MM/yyyy'}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Untill:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.endDate | date:'dd/MM/yyyy'}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Rate (RM) / Day
+                    </div>
+                    <div class="main-content-p1">
+                        RM{{facilityDetails?.facility?.rate}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Total Amount Payable (RM)
+                    </div>
+                    <div class="main-content-p1">
+                        RM{{facilityDetails?.amount}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-h2">
+                <u> Personal Details</u>
+            </div>
+
+            <div class="main-content-section-container">
+                <div class="main-content-section-type2">
+                    <div class="main-content-section-heading-with-icon-container">
+                        <div class="main-content-h1">
+                            Resident Name:
+                        </div>
+                        <div class="main-content-section-icon-container">
+                            <img src="assets/images/edit.png" alt="edit-icon">
+                        </div>
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.resident?.name}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Phone No:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.resident?.phoneNo}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Email:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.resident?.email}}
+                    </div>
+                </div>
+
+                <div class="main-content-section-type1">
+                    <div class="main-content-h1">
+                        Resident Address:
+                    </div>
+                    <div class="main-content-p1">
+                        {{facilityDetails?.resident?.houseNo}},
+                        Level {{facilityDetails?.resident?.level}},
+                        Block {{facilityDetails?.resident?.blockNo}},
+                        Road {{facilityDetails?.resident?.roadNo}}
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="check-box-with-p-container">
+                <input type="checkbox" name="" id="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin
+                    gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
+            </div> -->
+
+        </div>
+
+        <div class="bottom-nav-button-container">
+            <a class="button-container-a" [routerLink]="['/facility-details',facilityId]">
+                <div class="gray-button">
+                    Back
+                </div>
+            </a>
+
+            <div class="blue-button">
+                <button (click)="makePayment()" style="background: transparent;color: white;border: 0;">Payment</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- TODO: CSS -->

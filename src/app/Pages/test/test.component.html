@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>COMMUNITY SMART ACCESS</title>
+
+    <style>
+        #menu-item-Complaints {
+            padding-left: 5px;
+        }
+
+        #menu-item-Events {
+            padding-left: 15px;
+        }
+
+        #menu-item-Facilities {
+            padding-right: 20px;
+        }
+
+        #menu-item-Visitor img {
+            min-width: 70px;
+            min-height: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="top-bg">
+        <div class="heading">
+            <h2>COMMUNITY SMART ACCESS</h2>
+            <h2>RESIDENSI IMPIAN INDAH</h2>
+        </div>
+    </div>
+
+
+
+    <div class="menu-container">
+        <div class="black-menu">
+            <div class="black-menu-msg">welcomeMessage </div>
+            <a href="./login.html">
+                <img class="exit-logo" src="../images/logo-exit.png" alt="exit logo" />
+            </a>
+        </div>
+        <div class="menu">
+            <a *ngFor="let item of menuItems" [href]="item.url" class="menu-item" [id]="'menu-item-' + item.title">
+                <div class="menu-item-logo">
+                    <img [src]="item.logo" [alt]="item.title" />
+                </div>
+                <div class="menu-item-text-container">
+                    <div class="menu-item-title">{{ item.title }}</div>
+                    <div class="menu-item-subtitle">{{ item.subtitle }}</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="slideshow-menu-container">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                <div class="mySlides fade" *ngFor="let slide of slides; let i = index">
+                    <div class="swiper-slide-container">
+                        <div class="swiper-slide-content">
+                            <div class="swiper-menu-title">{{ slide.title }}</div>
+                            <div class="swiper-menu-sub-title">{{ slide.subtitle }}</div>
+                            <div class="swiper-menu-content">{{ slide.content }} <a href="#">See more</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" *ngFor="let slide of slides; let i = index" [class.active]="i === slideIndex"
+                    (click)="currentSlide(i)"></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

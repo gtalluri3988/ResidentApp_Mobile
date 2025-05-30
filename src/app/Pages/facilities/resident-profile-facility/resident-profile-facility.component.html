@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div class="nav .custom-nav">
+        <a [routerLink]="['/dashboard']"><img src="assets/images/back.png" alt="back"></a>
+        <div class="nav-text">
+            Book Facilities
+        </div>
+    </div>
+
+    <form [formGroup]="facilityForm">
+
+        <div class="form-container">
+            <!-- <select name="FacilityType" id="FacilityType" style="background-color: white; border-radius: 5px;">
+            <option value="">-Select Facility Type-</option>
+            <option value="Multipurpose Hall">Multipurpose Hall</option>
+            <option value="Meeting Room">Meeting Room</option>
+            <option value="Sports Arena">Sports Arena</option>
+            <option value="Rental Parking Lot">Rental Parking Lot</option>
+        </select> -->
+            <select formControlName="facilityTypeId" style="background-color: white; border-radius: 5px;"
+                (change)="onFacilityTypeChange($event)">
+                <option value="">-Select Facility Type-</option>
+                <option *ngFor="let item of baseService.facilityTypeDropDown" [value]="item.id">
+                    {{ item.name }}
+                </option>
+            </select>
+
+
+
+            <div style="width: 100%;">
+                <div class="placeholder-image-container">
+
+                    <div class="facility-item custom-item" *ngFor="let image of facilityDetails">
+                        <a [routerLink]="['/facility-details',image.id]">
+                            <img *ngIf="image.facilityPhotos?.preview; else noImage"
+                                [src]="image.facilityPhotos.preview" width="50" height="200" />
+                        </a>
+
+                        <ng-template #noImage>
+                            <img src="assets/images/image.png" width="50" />
+                        </ng-template>
+
+                        <div>{{ image.facilityName }}</div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="bottom-nav-button-container">
+                    <a [routerLink]="['/dashboard']">
+                        <div class="buttom-nav-button gray-button">Back</div>
+                    </a>
+                </div>
+
+            </div>

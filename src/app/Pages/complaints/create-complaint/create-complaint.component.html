@@ -1,0 +1,92 @@
+<div class="nav" style="margin-bottom: 35px;">
+    <a [routerLink]="['/dashboard']"><img src="assets/images/back.png" alt="back"></a>
+    <div class="nav-text">
+        Create New Complaint
+    </div>
+</div>
+
+<form [formGroup]="complaintForm" (submit)="saveComplaint()">
+    <div class="form-container" style="padding: 15px 60px  !important;">
+        <div class="form-content" style="width: 100%;">
+            <select formControlName="complaintTypeId" class="custom-input-box"
+                style="background-color: white; height: 30px; ">
+                <option value="">-Select Complaint Type-</option>
+                <option *ngFor="let item of baseService.complaintTypeDropDown" [value]="item.id">
+                    {{ item.name }}
+                </option>
+            </select>
+
+            <textarea class="custom-text-area-box" name="description" id="description" rows="7"
+                formControlName="description"></textarea>
+
+            <p><b style="font-weight: 300; font-size: 15px;">You can upload a total of (3) images</b></p>
+
+            <!-- <div class="upload-image-container">
+
+                <label for="fileInput">
+                    <img src="assets/images/upload-icon.png" alt="Upload" width="30" height="30"
+                        style="cursor: pointer;">
+                </label>
+                <input type="file" (change)="onFileChange($event)" multiple width="30px" height="30px">
+                <p>upload image</p>
+
+            </div>
+
+            <div class="placeholder-image-container" id="placeholder-image-container"
+                style="display: flex; flex-wrap: nowrap; gap: 8px;">
+                <ng-container *ngFor="let image of complaintPhotos.controls; let i = index">
+                    <ng-container *ngIf="image.value.preview">
+                        <img [formGroup]="getFormGroup(image)" [src]="image.value.preview" width="50"
+                            (click)="openImageModal(image.value.preview)">
+                        <a href="javascript:void(0)" (click)="removeImage(i)">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </ng-container>
+                </ng-container>
+            </div> -->
+
+
+            <div class="upload-image-container">
+                <label for="fileInput"
+                    style="display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+                    <img width="30" height="30" src="assets/images/upload.png" alt="upload" />
+                    <p style="margin: 4px 0 0;">Upload image</p>
+                </label>
+                <input id="fileInput" type="file" (change)="onFileChange($event)" hidden multiple accept="image/*" />
+            </div>
+
+            <!-- Image Previews with Remove -->
+            <div style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 10px; padding: 10px;">
+                <ng-container *ngFor="let image of complaintPhotos.controls; let i = index">
+                    <ng-container *ngIf="image.value.preview">
+                        <div [formGroup]="getFormGroup(image)"
+                            style="display: flex; flex-direction: column; align-items: center; min-width: 100px;">
+                            <img [src]="image.value.preview" alt="image"
+                                style="height: 110px; width: 90px; border-radius: 5px; object-fit: cover;"
+                                (click)="openImageModal(image.value.preview)" />
+                            <ng-container>
+                                <input type="hidden" formControlName="imageUploadedBy">
+                            </ng-container>
+                            <button type="button" (click)="removeImage(i)"
+                                style="margin-top: 5px; font-size: 12px; padding: 2px 6px;">
+                                Remove
+                            </button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+
+
+
+
+            <div class="bottom-nav-button-container">
+                <a [routerLink]="['/dashboard']">
+                    <div class="buttom-nav-button gray-button">Back</div>
+                </a>
+                <button type="submit" style="background: transparent;border: 0px;">
+                    <div class="buttom-nav-button blue-button">Next</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
