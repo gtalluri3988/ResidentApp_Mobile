@@ -49,8 +49,11 @@
 
         </div>
         <div class="qr-container">
-            <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="qrCodeSize"
+            <!-- <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="qrCodeSize"
                 [errorCorrectionLevel]="'M'" (rendered)="onQRRendered()">
+            </qrcode> -->
+            <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'svg'" [width]="qrCodeSize" [errorCorrectionLevel]="'M'"
+                (rendered)="onQRRendered()">
             </qrcode>
         </div>
         <div class="notification-container qr-notification-container">

@@ -68,6 +68,8 @@ export class VisitorQrComponent implements AfterViewInit {
     this.qrRendered = true;
   }
 
+
+
   // downloadQRCode() {
 
   //   const qrElement = this.qrCodeElement?.nativeElement;
@@ -85,48 +87,86 @@ export class VisitorQrComponent implements AfterViewInit {
   //   a.click();
   // }
 
-  downloadQRCode(): void {
+  // downloadQRCode(): void {
+  //   const element = document.getElementById('print-section');
+
+  //   if (element) {
+  //     const targetDiv = element.querySelector('#comNameDiv'); // Replace with your actual class or ID
+
+  //     if (targetDiv) {
+  //       const customText = document.createElement('p');
+  //       customText.textContent = 'Visitor QR | ' + this.communityName;
+  //       targetDiv.appendChild(customText);
+
+
+
+
+
+
+  //       // Add print styles
+  //       element.classList.add('force-print-style');
+
+  //       html2canvas(element).then(canvas => {
+  //         const imgData = canvas.toDataURL('image/png');
+  //         const pdf = new jsPDF('p', 'mm', 'a4');
+
+  //         const imgProps = pdf.getImageProperties(imgData);
+  //         const pdfWidth = pdf.internal.pageSize.getWidth();
+  //         const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  //         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //         pdf.save('VisitorQRCode.pdf');
+
+  //         element.classList.remove('force-print-style');
+
+
+  //         if (targetDiv && customText) {
+  //           targetDiv.removeChild(customText);
+  //         }
+
+
+
+  //       });
+  //     }
+  //   }
+  // }
+
+  async downloadQRCode(): Promise<void> {
     const element = document.getElementById('print-section');
+    if (!element) return;
 
-    if (element) {
-      const targetDiv = element.querySelector('#comNameDiv'); // Replace with your actual class or ID
+    const targetDiv = element.querySelector('#comNameDiv');
+    const customText = document.createElement('p');
+    customText.textContent = 'Visitor QR | ' + this.communityName;
+    customText.style.marginTop = '12px';
 
-      if (targetDiv) {
-        const customText = document.createElement('p');
-        customText.textContent = 'Visitor QR | ' + this.communityName;
-        targetDiv.appendChild(customText);
-
-
-
-
-
-
-        // Add print styles
-        element.classList.add('force-print-style');
-
-        html2canvas(element).then(canvas => {
-          const imgData = canvas.toDataURL('image/png');
-          const pdf = new jsPDF('p', 'mm', 'a4');
-
-          const imgProps = pdf.getImageProperties(imgData);
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-          pdf.save('VisitorQRCode.pdf');
-
-          element.classList.remove('force-print-style');
-
-
-          if (targetDiv && customText) {
-            targetDiv.removeChild(customText);
-          }
-
-
-
-        });
-      }
+    if (targetDiv) {
+      targetDiv.appendChild(customText);
     }
+
+    element.classList.add('force-print-style');
+
+    // ✅ Wait a bit for DOM to update
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    html2canvas(element).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = 'VisitorQRCode.png'; // ✅ filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      element.classList.remove('force-print-style');
+
+      // Cleanup
+      if (targetDiv && customText) {
+        targetDiv.removeChild(customText);
+      }
+    });
   }
+
 
 }
