@@ -58,7 +58,13 @@ export class LoginComponent {
           localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('role', this.auth.getUserRoles());
           localStorage.setItem('roleId', this.auth.getUserRoleId());
-          this.router.navigateByUrl('/dashboard');
+          if (response?.data?.firstTimeLogin) {
+            this.router.navigate(['/update-password', this.auth.getUserId()]);
+          }
+          else {
+
+            this.router.navigateByUrl('/dashboard');
+          }
         }
         else {
 

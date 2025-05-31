@@ -27,7 +27,6 @@ export class AuthService {
     this.idle.setIdle(900);
     this.idle.setTimeout(60);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
-
     this.idle.onTimeout.subscribe(() => {
       this.logout();
     });
@@ -45,6 +44,15 @@ export class AuthService {
 
   reSetPassword(Username: string): Observable<any> {
     return this.http.get<APIResponseModel>(`${this.apiUrl}/Auth/ResetPassword?email=` + Username).pipe(
+      catchError((error) => {
+
+        return throwError(() => new Error(error.message)); // Optional: Re-throw error
+      })
+    );
+  }
+
+  changePassword(forgotModel: any): Observable<any> {
+    return this.http.post<APIResponseModel>(`${this.apiUrl}/Auth/UpdatePassword`, forgotModel).pipe(
       catchError((error) => {
 
         return throwError(() => new Error(error.message)); // Optional: Re-throw error

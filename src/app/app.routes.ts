@@ -19,6 +19,7 @@ import { ResidentProfileComponent } from './Pages/profile/resident-profile/resid
 import { NotificationsComponent } from './Pages/notifications/notifications.component';
 import { PaymentResponseComponent } from './Pages/Payment/payment-response/payment-response.component';
 import { ForgotPasswordComponent } from './Pages/passwordreset/forgot-password/forgot-password.component';
+import { UpdatePasswordComponent } from './Pages/UpdatePassword/update-password/update-password.component';
 
 export const routes: Routes = [
 
@@ -45,7 +46,8 @@ export const routes: Routes = [
     { path: 'resident-Profile', component: ResidentProfileComponent, canActivate: [AuthGuard] },
     { path: 'resident-notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
     { path: 'paymentresponse', component: PaymentResponseComponent },
-    { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [AuthGuard] },
+    { path: 'forgot-password', component: ForgotPasswordComponent },
+    { path: 'update-password/:id', component: UpdatePasswordComponent },
     // {
     //     path: '', component: DashboardComponent, canActivate: [AuthGuard],
     //     children: [

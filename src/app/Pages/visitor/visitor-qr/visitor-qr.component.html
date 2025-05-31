@@ -36,7 +36,7 @@
             </a>
             <div class="nav-name-container">
                 <div class="nav-name">
-                    Visitor QR
+                    Visitor QR | {{visitorDetails?.community.communityName}}
                 </div>
             </div>
         </div>
@@ -44,6 +44,10 @@
 
     </div>
     <div id="print-section" class="print">
+
+        <div id="comNameDiv" class="qr-container">
+
+        </div>
         <div class="qr-container">
             <qrcode #qrcodeEl [qrdata]="qrData" [elementType]="'canvas'" [width]="qrCodeSize"
                 [errorCorrectionLevel]="'M'" (rendered)="onQRRendered()">

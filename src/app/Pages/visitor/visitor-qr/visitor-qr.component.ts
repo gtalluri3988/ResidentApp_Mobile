@@ -20,6 +20,7 @@ import jsPDF from 'jspdf';
 })
 export class VisitorQrComponent implements AfterViewInit {
 
+  communityName: string = '';
   visitorDetails: any;
   qrData: string = '';
   visitorId: string = "";
@@ -42,14 +43,13 @@ export class VisitorQrComponent implements AfterViewInit {
   @ViewChild('qrcodeEl', { static: false, read: ElementRef }) qrCodeElement!: ElementRef;
   qrRendered = false;
 
-
   bindVisitorDetails() {
 
     this.visitorService.getVisitorById(this.visitorId).subscribe({
       next: (response) => {
         this.visitorDetails = response;
         this.qrData = `Community Name: ${this.visitorDetails?.community.communityName}\nVisitor Name: ${this.visitorDetails?.visitorName}\nVehicle No: ${this.visitorDetails?.vehicleNo}\nVisit Date: ${this.visitorDetails?.visitDate.split(' ')[0]}`;
-
+        this.communityName = this.visitorDetails?.community.communityName;
       },
       error: (error) => {
         console.error('Error:', error);
@@ -70,7 +70,6 @@ export class VisitorQrComponent implements AfterViewInit {
 
   // downloadQRCode() {
 
-
   //   const qrElement = this.qrCodeElement?.nativeElement;
   //   const canvas: HTMLCanvasElement | null = qrElement?.querySelector('canvas');
 
@@ -88,25 +87,46 @@ export class VisitorQrComponent implements AfterViewInit {
 
   downloadQRCode(): void {
     const element = document.getElementById('print-section');
-    if (!element) return;
 
-    // Add print styles
-    element.classList.add('force-print-style');
+    if (element) {
+      const targetDiv = element.querySelector('#comNameDiv'); // Replace with your actual class or ID
 
-    html2canvas(element).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
+      if (targetDiv) {
+        const customText = document.createElement('p');
+        customText.textContent = 'Visitor QR | ' + this.communityName;
+        targetDiv.appendChild(customText);
 
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('VisitorQRCode.pdf');
 
-      element.classList.remove('force-print-style');
-    });
+
+
+
+        // Add print styles
+        element.classList.add('force-print-style');
+
+        html2canvas(element).then(canvas => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF('p', 'mm', 'a4');
+
+          const imgProps = pdf.getImageProperties(imgData);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('VisitorQRCode.pdf');
+
+          element.classList.remove('force-print-style');
+
+
+          if (targetDiv && customText) {
+            targetDiv.removeChild(customText);
+          }
+
+
+
+        });
+      }
+    }
   }
-
 
 }
