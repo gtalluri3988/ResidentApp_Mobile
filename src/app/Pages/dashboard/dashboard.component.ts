@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
   ];
 
   bottomMenuButtons = [
-    { name: 'Bills', url: './resident-profile-bills', logo: 'assets/images/menu-item-bill.png' },
+    { name: 'Bills', url: '/resident-bills', logo: 'assets/images/menu-item-bill.png' },
     { name: 'Notification', url: '/resident-notifications', logo: 'assets/images/menu-item-notification.png' },
     { name: 'Profile', url: '/resident-Profile', logo: 'assets/images/menu-item-profile.png' }
   ];

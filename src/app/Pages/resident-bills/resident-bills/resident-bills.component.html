@@ -1,0 +1,163 @@
+<!-- TODO: Add css -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resident Profile Bills</title>
+    <style>
+        :root {
+            --main-page-padding: 45px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="main-container">
+        <!-- Nav -->
+        <div class="nav-container">
+            <a href="../views/index.html" class="nav-btn-container">
+                <img class="nav-btn-button" src="assets/images/back.png" alt="back-button">
+            </a>
+            <div class="nav-name-container">
+                <div class="nav-name">
+                    Bills & Payments
+                </div>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="content-container">
+
+            <div class="balance-container">
+                <div class="balance-title">
+                    Outstanding Maintenance Fee
+                </div>
+
+                <div class="balance-amount">
+                    RM80.00
+                </div>
+
+                <div class="button balance-paynow-button">
+                    <a [routerLink]="['/redirect-payment']" style="color: white;">Pay Now</a>
+                </div>
+
+            </div>
+            <br>
+
+            <div class="transaction-history-title-container">
+                <div class="transaction-history-title">
+                    Transaction History
+                </div>
+                <div class="transaction-history-sub-title">
+                    Last 30 days
+                </div>
+            </div>
+
+
+            <div class="transaction-list-container">
+
+                <div class="transaction-list-item-container">
+                    <div class="transaction-list-item-main-row">
+                        <div class="transaction-list-item-name">
+                            Maintenance Fee
+                        </div>
+                        <div class="transaction-list-item-amount-container">
+                            <div class="transaction-list-item-amount">
+                                RM80.00
+                            </div>
+                            <a href="../views/resident-profile-bills-receipt.html"> <img
+                                    src="assets/images/down-arrow.png" alt="transaction-list-item-amount-logo" /></a>
+                        </div>
+                    </div>
+                    <div class="transaction-list-item-sub-name">
+                        23/01/2025, 09:20 AM
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="transaction-list-item-container">
+                    <div class="transaction-list-item-main-row">
+                        <div class="transaction-list-item-name">
+                            Facility Booking
+                        </div>
+                        <div class="transaction-list-item-amount-container">
+                            <div class="transaction-list-item-amount">
+                                RM120.00
+                            </div>
+                            <a href="../views/resident-profile-bills-receipt.html"> <img
+                                    src="assets/images/down-arrow.png" alt="transaction-list-item-amount-logo" /></a>
+                        </div>
+                    </div>
+                    <div class="transaction-list-item-sub-name">
+                        23/01/2025, 09:20 AM
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="transaction-list-item-container">
+                    <div class="transaction-list-item-main-row">
+                        <div class="transaction-list-item-name">
+                            Maintenance Fee
+                        </div>
+                        <div class="transaction-list-item-amount-container">
+                            <div class="transaction-list-item-amount">
+                                RM80.00
+                            </div>
+                            <a href="../views/resident-profile-bills-receipt.html"> <img
+                                    src="assets/images/down-arrow.png" alt="transaction-list-item-amount-logo" /></a>
+                        </div>
+                    </div>
+                    <div class="transaction-list-item-sub-name">
+                        23/01/2025, 09:20 AM
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="transaction-list-item-container">
+                    <div class="transaction-list-item-main-row">
+                        <div class="transaction-list-item-name">
+                            Maintenance Fee
+                        </div>
+                        <div class="transaction-list-item-amount-container">
+                            <div class="transaction-list-item-amount">
+                                RM80.00
+                            </div>
+                            <a href="../views/resident-profile-bills-receipt.html"> <img
+                                    src="assets/images/down-arrow.png" alt="transaction-list-item-amount-logo" /></a>
+                        </div>
+                    </div>
+                    <div class="transaction-list-item-sub-name">
+                        23/01/2025, 09:20 AM
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="bottom-nav-button-container">
+            <a [routerLink]="['/dashboard']">
+                <div class="buttom-nav-button gray-button">Home</div>
+            </a>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+
+
+<!-- TODO: CSS -->

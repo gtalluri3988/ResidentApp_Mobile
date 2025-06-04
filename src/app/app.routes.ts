@@ -20,6 +20,9 @@ import { NotificationsComponent } from './Pages/notifications/notifications.comp
 import { PaymentResponseComponent } from './Pages/Payment/payment-response/payment-response.component';
 import { ForgotPasswordComponent } from './Pages/passwordreset/forgot-password/forgot-password.component';
 import { UpdatePasswordComponent } from './Pages/UpdatePassword/update-password/update-password.component';
+import { ResidentBillsComponent } from './Pages/resident-bills/resident-bills/resident-bills.component';
+import { ResidentRedirectPaymentComponent } from './Pages/Payment/resident-redirect-payment/resident-redirect-payment.component';
+import { ResidentBillsReceiptComponent } from './Pages/Payment/resident-bills-receipt/resident-bills-receipt.component';
 
 export const routes: Routes = [
 
@@ -48,6 +51,9 @@ export const routes: Routes = [
     { path: 'paymentresponse', component: PaymentResponseComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'update-password/:id', component: UpdatePasswordComponent },
+    { path: 'resident-bills', component: ResidentBillsComponent },
+    { path: 'redirect-payment', component: ResidentRedirectPaymentComponent },
+    { path: 'payment-receipt', component: ResidentBillsReceiptComponent },
     // {
     //     path: '', component: DashboardComponent, canActivate: [AuthGuard],
     //     children: [

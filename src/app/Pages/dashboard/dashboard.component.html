@@ -18,9 +18,14 @@
 </head>
 
 <body>
+    <br>
+    <div class="bottom-menu-logo">
+        <img src="assets/images/CSA LOGO FINAL.png" alt="CSA Logo">
+    </div>
+
     <div class="top-bg">
-        <div class="heading">
-            <h2>COMMUNITY SMART ACCESS</h2>
+        <div class="heading" style="color: #1B9FA2 !important;">
+
             <h2>{{communityDetails?.communityName | uppercase}}</h2>
         </div>
     </div>
@@ -33,7 +38,7 @@
                 <div class="mySlides fade" style="display: block;">
                     <div class="swiper-slide-container">
                         <div class="swiper-slide-content">
-                            <div class="swiper-menu-title">
+                            <div class="swiper-menu-title" style="font-size: 13px !important;">
                                 News &amp; Annoucement
                             </div>
                             <div class="swiper-menu-sub-title">
@@ -50,7 +55,7 @@
                 <div class="mySlides fade" style="display: none;">
                     <div class="swiper-slide-container">
                         <div class="swiper-slide-content">
-                            <div class="swiper-menu-title">
+                            <div class="swiper-menu-title" style="font-size: 13px !important;">
                                 News &amp; Annoucement
                             </div>
                             <div class="swiper-menu-sub-title">
@@ -67,7 +72,7 @@
                 <div class="mySlides fade" style="display: none;">
                     <div class="swiper-slide-container">
                         <div class="swiper-slide-content">
-                            <div class="swiper-menu-title">
+                            <div class="swiper-menu-title" style="font-size: 13px !important;">
                                 News &amp; Annoucement
                             </div>
                             <div class="swiper-menu-sub-title">
@@ -94,9 +99,10 @@
 
         <div class="bottom-menu-container" id="bottom-menu-container">
 
-            <a class="bottom-menu-item"><img src="assets/images/menu-item-bill.png" class="bottom-menu-item-image">
+            <a [routerLink]="['/resident-bills']" class="bottom-menu-item"><img src="assets/images/menu-item-bill.png"
+                    class="bottom-menu-item-image">
                 <div class="bottom-menu-item-title">Bills</div>
-            </a><a [routerLink]="['//resident-notifications']" class="bottom-menu-item"><img
+            </a><a [routerLink]="['/resident-notifications']" class="bottom-menu-item"><img
                     src="assets/images/menu-item-notification.png" class="bottom-menu-item-image">
                 <div class="bottom-menu-item-title">Notification</div>
             </a><a [routerLink]="['/resident-Profile']" class="bottom-menu-item"><img

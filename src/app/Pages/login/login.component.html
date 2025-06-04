@@ -1,18 +1,18 @@
-<div class="header">
-    <div class="heading">
-        <h2>COMMUNITY SMART ACCESS</h2>
-    </div>
-
-</div>
-
+<br>
 <div class="main">
     <!-- <h2>RESIDENSI IMPIAN INDAH</h2> -->
 
     <form (submit)="login()" [formGroup]="loginForm">
+
+        <div class="bottom-menu-logo">
+            <img src="assets/images/CSA LOGO FINAL.png" alt="CSA Logo">
+        </div>
+
+        <br>
         <div class="login-form-container">
             <div class="login-form-content">
                 <div class="login-header">
-                    <p>Welcome to CSA Resident Application.</p>
+                    <p>Welcome to CSA Resident Application</p>
                     <p>Please login to continue</p>
                 </div>
 
@@ -22,7 +22,7 @@
                 <button class="custom-input custom-button" type="submit">
                     Login
                 </button>
-                <a [routerLink]="['/forgot-password']" style="color: blue;">
+                <a [routerLink]="['/forgot-password']" style="color: rgb(58, 58, 209);font-size: 14px;">
                     Forgot Password
                 </a>
 
